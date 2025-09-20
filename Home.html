@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BuyNest - Your One-Stop Shop</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap');
+
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(13, 71, 161, 0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 2rem;
+      cursor: pointer;
+      letter-spacing: 2px;
+      user-select: none;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li a {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.3rem 0.5rem;
+      border-radius: 6px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background: #fff;
+      color: #0d47a1;
+      outline: none;
+    }
+
+    /* Hero Section */
+    .hero {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-weight: 800;
+      font-size: 3.5rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.25);
+    }
+    .hero p {
+      font-weight: 300;
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.25);
+    }
+    .btn-primary {
+      background: #fff;
+      color: #0d47a1;
+      font-weight: 700;
+      padding: 1rem 3rem;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgb(255 255 255 / 0.6);
+      transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background: #e0e0e0;
+      color: #0a3871;
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* Featured Products */
+    .featured-products {
+      background: #fff;
+      color: #0d47a1;
+      border-radius: 20px 20px 0 0;
+      padding: 3rem 2rem;
+      box-shadow: 0 -5px 30px rgba(13, 71, 161, 0.3);
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-top: -60px;
+      z-index: 0;
+      position: relative;
+    }
+    .featured-products h2 {
+      text-align: center;
+      font-weight: 800;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .product-card {
+      background: #e3f2fd;
+      border-radius: 15px;
+      padding: 1rem;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+    }
+    .product-card img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .product-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .product-price {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #1976d2;
+    }
+    .product-card a {
+      margin-top: 1rem;
+      background: #0d47a1;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .product-card a:hover {
+      background: #073d8a;
+    }
+
+    /* Footer */
+    footer {
+      background: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 1rem 1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .btn-primary {
+        padding: 0.8rem 2.5rem;
+        font-size: 1rem;
+      }
+      .featured-products {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo" onclick="location.href='index.html'">BuyNest</div>
+    <nav>
+      <ul>
+        <li><a href="Home.html" aria-current="page">Home</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" role="banner" aria-label="Welcome Section">
+    <h1>Discover Amazing Deals at BuyNest</h1>
+    <p>Your one-stop shop for electronics, fashion, home goods, toys, books, and more.</p>
+    <button class="btn-primary" onclick="location.href='products.html'">Shop Now</button>
+  </section>
+
+  <section class="featured-products" aria-label="Featured Products">
+    <h2>Featured Products</h2>
+    <div class="products-grid" id="featuredGrid">
+      <!-- Products loaded by JS -->
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 BuyNest. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const products = [
+      {id: 1, title: "Wireless Headphones", price: 59.99, image: "Assets/img/pexels-garrettmorrow-610945.jpg"},
+      {id: 2, title: "Smart Watch Series 5", price: 199.99, image: "Assets/img/pexels-alexandr-borecky-128389-393047.jpg"},
+      {id: 3, title: "Classic Leather Jacket", price: 129.99, image: "Assets/img/pexels-polina-kovaleva-5827871.jpg"},
+      {id: 4, title: "Running Sneakers", price: 89.99, image: "Assets/img/pexels-craytive-1456705.jpg"}
+    ];
+
+    function loadFeaturedProducts() {
+      const container = document.getElementById('featuredGrid');
+      products.forEach(p => {
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card';
+        productCard.innerHTML = `
+          <img src="${p.image}" alt="${p.title}" />
+          <div class="product-title">${p.title}</div>
+          <div class="product-price">$${p.price.toFixed(2)}</div>
+          <a href="product.html?id=${p.id}" aria-label="View details of ${p.title}">View Details</a>
+        `;
+        container.appendChild(productCard);
+      });
+    }
+
+    loadFeaturedProducts();
+  </script>
+</body>
+</html>

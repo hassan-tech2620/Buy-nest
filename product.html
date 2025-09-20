@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BuyNest - Products</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      color: #0d47a1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: #0d47a1;
+      color: white;
+      padding: 1rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.8rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.8rem;
+    }
+    nav ul li a {
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.3rem 0.5rem;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background: #1565c0;
+      outline: none;
+    }
+
+    main {
+      padding: 2rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-grow: 1;
+    }
+    h1 {
+      font-weight: 800;
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+      gap: 2rem;
+    }
+    .product-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(13, 71, 161, 0.1);
+      padding: 1.3rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 35px rgba(13, 71, 161, 0.2);
+    }
+    .product-card img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .product-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      text-align: center;
+      color: #0d47a1;
+    }
+    .product-price {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #1976d2;
+      margin-bottom: 1rem;
+    }
+    .btn-details {
+      padding: 0.5rem 1.6rem;
+      border-radius: 25px;
+      background: #0d47a1;
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .btn-details:hover,
+    .btn-details:focus {
+      background: #073d8a;
+      outline: none;
+    }
+
+    footer {
+      background: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 1rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo" onclick="location.href='index.html'">BuyNest</div>
+    <nav>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="product.html" aria-current="page">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Explore Our Products</h1>
+    <div class="products-grid" id="productsGrid"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 BuyNest. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Sample product data - you can add more
+    const products = [
+      {id: 1, title: "Wireless Headphones", price: 59.99, image: "Assets/img/pexels-garrettmorrow-610945.jpg"},
+      {id: 2, title: "Smart Watch Series 5", price: 199.99, image: "Assets/img/pexels-alexandr-borecky-128389-393047.jpg"},
+      {id: 3, title: "Classic Leather Jacket", price: 129.99, image: "Assets/img/pexels-polina-kovaleva-5827871.jpg"},
+      {id: 4, title: "Running Sneakers", price: 89.99, image: "Assets/img/pexels-craytive-1456705.jpg"},
+      {id: 5, title: "Elegant Wrist Watch", price: 249.99, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80"},
+      {id: 6, title: "Portable Bluetooth Speaker", price: 45.00, image: "Assets/img/pexels-curayagjovan-4917455.jpg"}
+    ];
+
+    function loadProducts() {
+      const container = document.getElementById('productsGrid');
+      products.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="${p.image}" alt="${p.title}" />
+          <div class="product-title">${p.title}</div>
+          <div class="product-price">$${p.price.toFixed(2)}</div>
+          <a href="product.html?id=${p.id}" class="btn-details" aria-label="View details of ${p.title}">View Details</a>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    loadProducts();
+  </script>
+</body>
+</html>

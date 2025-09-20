@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BuyNest - About Us</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f7f9fc;
+      margin: 0;
+      color: #0d47a1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: #0d47a1;
+      color: white;
+      padding: 1rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.8rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.8rem;
+    }
+    nav ul li a {
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.3rem 0.5rem;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background: #1565c0;
+      outline: none;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem 3rem;
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(13, 71, 161, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    h1 {
+      font-weight: 800;
+      font-size: 3rem;
+      text-align: center;
+      color: #0d47a1;
+      margin-bottom: 0.5rem;
+    }
+
+    .mission,
+    .history,
+    .team {
+      font-weight: 300;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #2a3a72;
+      text-align: justify;
+    }
+
+    .team {
+      margin-top: 1rem;
+    }
+
+    .team-members {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .member {
+      background: #e3f2fd;
+      border-radius: 15px;
+      padding: 1rem 1.2rem;
+      flex: 1 1 200px;
+      box-shadow: 0 8px 20px rgba(13, 71, 161, 0.1);
+      text-align: center;
+    }
+
+    .member img {
+      border-radius: 50%;
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      margin-bottom: 0.7rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .member-name {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #0d47a1;
+      margin-bottom: 0.2rem;
+    }
+    .member-role {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #1976d2;
+    }
+
+    footer {
+      background: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        padding: 1.5rem 1.5rem;
+      }
+      .team-members {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo" onclick="location.href='index.html'">BuyNest</div>
+    <nav>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="about.html" aria-current="page">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>About BuyNest</h1>
+
+    <section class="mission" aria-label="Our Mission">
+      <h2>Our Mission</h2>
+      <p>At BuyNest, we are dedicated to bringing you the finest products that combine quality, innovation, and affordability. Our mission is to provide a seamless shopping experience while promoting sustainability and ethical sourcing.</p>
+    </section>
+
+    <section class="history" aria-label="Our History">
+      <h2>Our Story</h2>
+      <p>Founded in 2015, BuyNest started as a small online store with a big dream: to connect customers with products that make their lives better. Over the years, we have grown into a trusted brand known for excellent service and a curated product range.</p>
+    </section>
+
+    <section class="team" aria-label="Our Team">
+      <h2>Meet Our Team</h2>
+      <div class="team-members">
+        <div class="member" tabindex="0">
+          <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="John Smith" />
+          <div class="member-name">John Smith</div>
+          <div class="member-role">Founder & CEO</div>
+        </div>
+        <div class="member" tabindex="0">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Johnson" />
+          <div class="member-name">Emily Johnson</div>
+          <div class="member-role">Head of Marketing</div>
+        </div>
+        <div class="member" tabindex="0">
+          <img src="https://randomuser.me/api/portraits/men/78.jpg" alt="Michael Lee" />
+          <div class="member-name">Michael Lee</div>
+          <div class="member-role">Chief Technology Officer</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 BuyNest. All rights reserved.</p>
+  </footer>
+</body>
+</html>
